@@ -1,0 +1,20 @@
+<script>
+    const ws = new WebSocket("ws://localhost:8080/wss");
+    //连接打开时触发
+    ws.onopen = function(evt) {
+        ws.send('{"method":"HelloWorld.Subscribe","params":{},"id":0}');
+        console.log("Connection open ...");
+
+    };
+    //接收到消息时触发
+    ws.onmessage = function(evt) {
+        console.log("Received Message: " + evt.data);
+    };
+    //连接关闭时触发
+    ws.onclose = function(evt) {
+        console.log("Connection closed.");
+    };
+    setInterval(function(){
+        ws.send(`ping`);
+    },1000);
+</script>

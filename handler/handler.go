@@ -67,6 +67,7 @@ readPumpEvent:
 			continue readPumpEvent
 		}
 
+		fmt.Println(string(message))
 		// 解析message
 		var req = &logic.MessageReq{}
 		if err := json.Unmarshal(message, &req); err != nil {

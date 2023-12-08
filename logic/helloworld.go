@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"wsdemo/config"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	"github.com/xsbs1996/oceanps"
-	"github.com/xsbs1996/oceanps/oceanpsfuncs"
 )
 
 const (
@@ -68,12 +68,7 @@ func (l *HelloWorldLogic) subscribe(in interface{}, conn *websocket.Conn) error 
 	l.setConn(conn)
 
 	// 每个用户是一个主题,全员主题 user 传递空字符串
-	l.topic = oceanps.NewEventTopic(l.topicName, "", &oceanpsfuncs.RedisPushPull{
-		Ip:       "127.0.0.1",
-		Port:     "6379",
-		DB:       0,
-		Password: "",
-	})
+	l.topic = oceanps.NewEventTopic(l.topicName, "", config.OceanpsRedisConf)
 
 	l.topic.Subscribe(conn, l.WriteMsg)
 	// 运行消息发送
