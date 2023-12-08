@@ -177,7 +177,6 @@ func (client *WsClient) writeErr(method string, id int, err error) {
 
 // 查看是否已订阅
 func (client *WsClient) isTopic(topicName string) (logic.PubSubLogic, bool) {
-	// 查看是否已订阅
 	client.mx.Lock()
 	defer client.mx.Unlock()
 	l, ok := client.logicList[topicName]
@@ -186,7 +185,6 @@ func (client *WsClient) isTopic(topicName string) (logic.PubSubLogic, bool) {
 
 // 添加订阅
 func (client *WsClient) addTopic(topicName string, l logic.PubSubLogic) {
-	// 查看是否已订阅
 	client.mx.Lock()
 	defer client.mx.Unlock()
 	client.logicList[topicName] = l
@@ -195,7 +193,6 @@ func (client *WsClient) addTopic(topicName string, l logic.PubSubLogic) {
 
 // 删除订阅
 func (client *WsClient) delTopic(topicName string) {
-	// 查看是否已订阅
 	client.mx.Lock()
 	defer client.mx.Unlock()
 	delete(client.logicList, topicName)
@@ -204,7 +201,6 @@ func (client *WsClient) delTopic(topicName string) {
 
 // 订阅数量
 func (client *WsClient) lenTopic() int {
-	// 查看是否已订阅
 	client.mx.Lock()
 	defer client.mx.Unlock()
 	return len(client.logicList)

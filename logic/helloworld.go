@@ -16,7 +16,7 @@ const (
 )
 
 func init() {
-	NewFuncMap[HelloWorldTopic] = NewPayMarqueeLogic
+	NewFuncMap[HelloWorldTopic] = NewHelloWorldLogic
 	MessageMethodList[fmt.Sprintf("%s.%s", HelloWorldTopic, MessageMethodOperSubscribe)] = MessageMethod{MessageMethodOperSubscribe, HelloWorldTopic}
 	MessageMethodList[fmt.Sprintf("%s.%s", HelloWorldTopic, MessageMethodOperUnsubscribe)] = MessageMethod{MessageMethodOperUnsubscribe, HelloWorldTopic}
 }
@@ -34,7 +34,7 @@ type HelloWorldLogic struct {
 	ReadMsg   chan []byte
 }
 
-func NewPayMarqueeLogic(ginCtx *gin.Context, id int, method string, writeMsg chan<- []byte) PubSubLogic {
+func NewHelloWorldLogic(ginCtx *gin.Context, id int, method string, writeMsg chan<- []byte) PubSubLogic {
 	logic := &HelloWorldLogic{
 		Id:        id,
 		Method:    method,
