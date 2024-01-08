@@ -4,11 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"wsdemo/config"
-
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	"github.com/xsbs1996/oceanps"
+	"wsdemo/config"
 )
 
 const (
@@ -68,8 +67,8 @@ func (l *HelloWorldLogic) subscribe(in interface{}, conn *websocket.Conn) error 
 	l.setConn(conn)
 
 	// 每个用户是一个主题,全员主题 user 传递空字符串
-	l.topic = oceanps.NewEventTopic(l.topicName, "", config.OceanpsRedisConf)
-
+	//l.topic = oceanps.NewEventTopic(l.topicName, "", config.OceanpsRedisConf) // redis
+	l.topic = oceanps.NewEventTopic(l.topicName, "", config.OceanpsRabbitMqConf) // RabbitMQ
 	l.topic.Subscribe(conn, l.WriteMsg)
 	// 运行消息发送
 	go l.sendMsg()
