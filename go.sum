@@ -83,6 +83,7 @@ github.com/ugorji/go/codec v1.2.11 h1:BMaWp1Bb6fHwEtbplGBGJ498wD+LKlNSl25MjdZY4d
 github.com/ugorji/go/codec v1.2.11/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
 github.com/xsbs1996/oceanps v1.2.4 h1:5xCDNhVI8z7cgNJXbaVsB5s8Y9jjTgpHHH5NecwsFM4=
 github.com/xsbs1996/oceanps v1.2.4/go.mod h1:O0CdEoIrl1htgkdQPagH9IgWbnVL06YZYJ0USCpUsmA=
+github.com/xsbs1996/oceanps v1.8.0/go.mod h1:O0CdEoIrl1htgkdQPagH9IgWbnVL06YZYJ0USCpUsmA=
 go.uber.org/goleak v1.2.1 h1:NBol2c7O1ZokfZ0LEU9K6Whx/KnwvepVetCUhtKja4A=
 go.uber.org/goleak v1.2.1/go.mod h1:qlT2yGI9QafXHhZZLxlSuNsMw3FFLxBr+tBRlmO1xH4=
 golang.org/x/arch v0.0.0-20210923205945-b76863e36670/go.mod h1:5om86z9Hs0C8fWVUuoMHwpExlXzs5Tkyp9hOrfG7pp8=
