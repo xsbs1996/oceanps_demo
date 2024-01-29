@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/gorilla/websocket v1.5.0
-	github.com/xsbs1996/oceanps v1.8.3
+	github.com/xsbs1996/oceanps v1.8.4
 )
 
 require (
