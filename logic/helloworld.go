@@ -68,8 +68,8 @@ func (l *HelloWorldLogic) subscribe(in interface{}, conn *websocket.Conn) error 
 	l.setConn(conn)
 
 	// 每个用户是一个主题,全员主题 user 传递空字符串
-	//l.topic = oceanps.NewEventTopic(l.topicName, "", config.OceanpsRedisConf) // redis
-	l.topic = oceanps.NewEventTopic(l.topicName, "", time.Second*3, config.OceanpsRabbitMqConf) // RabbitMQ
+	l.topic = oceanps.NewEventTopic(l.topicName, "", time.Second*3, config.OceanpsRedisConf) // redis
+	//l.topic = oceanps.NewEventTopic(l.topicName, "", time.Second*3, config.OceanpsRabbitMqConf) // RabbitMQ
 	if l.topic.Error != nil {
 		panic(l.topic.Error)
 	}
